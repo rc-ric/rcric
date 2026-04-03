@@ -1,0 +1,581 @@
+/* ═══════════════════════════════════════════════════════
+   ANIMATIONS — Keyframes, Reveals, Delays, Stagger
+   ═══════════════════════════════════════════════════════ */
+
+
+/* ═══════════  KEYFRAMES  ═══════════ */
+
+/* ── Body fade-in ── */
+body {
+  animation: body-appear 0.6s ease forwards;
+}
+
+@keyframes body-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Orb drift ── */
+@keyframes orb-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.08); }
+  66% { transform: translate(-20px, 25px) scale(0.95); }
+  100% { transform: translate(15px, -20px) scale(1.04); }
+}
+
+@keyframes orb-drift-r {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-25px, 30px) scale(1.06); }
+  66% { transform: translate(20px, -20px) scale(0.97); }
+  100% { transform: translate(-10px, 15px) scale(1.03); }
+}
+
+@keyframes orb-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Orb ambient idle pulse */
+.orb-1 {
+  animation: orb-drift 20s ease-in-out infinite alternate,
+    orb-pulse 8s ease-in-out infinite;
+}
+
+.orb-2 {
+  animation: orb-drift-r 25s ease-in-out infinite alternate,
+    orb-pulse 11s ease-in-out infinite 2s;
+}
+
+/* ── Fade in up ── */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Reveal up (initial animation) ── */
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Reveal card (initial animation) ── */
+@keyframes revealCard {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Auto shine ── */
+@keyframes auto-shine {
+  0% { left: -100%; }
+  100% { left: 150%; }
+}
+
+
+
+/* ── Scan animation ── */
+@keyframes scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+@keyframes scan-v {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* ── Orbit animations ── */
+@keyframes orbit-1 {
+  from { transform: rotateX(45deg) rotateY(0deg) rotateZ(0deg); }
+  to { transform: rotateX(45deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes orbit-2 {
+  from { transform: rotateX(-45deg) rotateY(0deg) rotateZ(0deg); }
+  to { transform: rotateX(-45deg) rotateY(360deg) rotateZ(-360deg); }
+}
+
+@keyframes core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.4);
+  }
+}
+
+/* ── Nav drop ── */
+#header {
+  animation: nav-drop 0.7s var(--ease-expo) 0.2s both;
+}
+
+@keyframes nav-drop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ── Mobile nav stagger ── */
+#mobile-menu.open a {
+  animation: mobileNavIn 0.4s var(--ease-expo) both;
+}
+
+#mobile-menu.open a:nth-child(1) { animation-delay: 60ms; }
+#mobile-menu.open a:nth-child(2) { animation-delay: 100ms; }
+#mobile-menu.open a:nth-child(3) { animation-delay: 140ms; }
+#mobile-menu.open a:nth-child(4) { animation-delay: 180ms; }
+#mobile-menu.open a:nth-child(5) { animation-delay: 220ms; }
+#mobile-menu.open a:nth-child(6) { animation-delay: 260ms; }
+#mobile-menu.open a:nth-child(7) { animation-delay: 300ms; }
+
+@keyframes mobileNavIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── Timeline dot ping ── */
+.timeline-dot {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.timeline-item.in-view .timeline-dot {
+  animation: dot-ping 0.6s var(--ease-expo) both;
+}
+
+@keyframes dot-ping {
+  0% {
+    transform: scale(0);
+    box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.6);
+  }
+  60% {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 8px rgba(var(--accent-rgb), 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
+  }
+}
+
+/* ── Gallery sweep ── */
+@keyframes gallery-sweep {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(300px);
+    opacity: 0;
+  }
+}
+
+/* ── Sonar pulse ── */
+@keyframes sonar-pulse {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+}
+
+/* ── Solaris stripe draw ── */
+@keyframes stripe-draw {
+  from {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* ── Floating micro (HUD tags) ── */
+@keyframes float-micro {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.hud-tag {
+  animation: float-micro 4s ease-in-out infinite;
+}
+
+.hud-tag:nth-child(2) { animation-delay: 1.5s; }
+.hud-tag:nth-child(3) { animation-delay: 0.7s; }
+.hud-tag:nth-child(4) { animation-delay: 2.2s; }
+
+/* ── Ambient floating dots ── */
+.ambient-dot {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float-a {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.4;
+  }
+  33% {
+    transform: translateY(-18px) translateX(8px);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translateY(10px) translateX(-6px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float-b {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(20px) translateX(-12px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+
+/* ═══════════  REVEAL SYSTEM  ═══════════ */
+
+/* ── Initial animation-based reveal (for hero auto-play) ── */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealUp 0.8s var(--ease-expo) forwards;
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: revealCard 0.8s var(--ease-expo) forwards;
+}
+
+/* ── Scroll-triggered reveal (overrides animation with transition) ── */
+.reveal-text,
+.reveal-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-expo),
+    transform 0.8s var(--ease-expo);
+}
+
+.reveal-card {
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.8s var(--ease-expo),
+    transform 0.8s var(--ease-expo);
+}
+
+.reveal-text.in-view,
+.reveal-card.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Exception: hero elements still auto-animate ── */
+#home .reveal-text,
+#home .reveal-card {
+  animation: revealUp 0.8s var(--ease-expo) forwards;
+  transition: none;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+#home .reveal-text.in-view,
+#home .reveal-card.in-view {
+  animation: none;
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Reveal from left ── */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.85s var(--ease-expo),
+    transform 0.85s var(--ease-expo);
+}
+
+.reveal-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Reveal from right ── */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition: opacity 0.85s var(--ease-expo),
+    transform 0.85s var(--ease-expo);
+}
+
+.reveal-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Reveal scale-up (for tags, pills, badges) ── */
+.reveal-pop {
+  opacity: 0;
+  transform: scale(0.88) translateY(10px);
+  transition: opacity 0.6s var(--ease-expo),
+    transform 0.6s var(--ease-expo);
+}
+
+.reveal-pop.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* ── Reveal line (horizontal lines draw in) ── */
+.reveal-line {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 0.4s ease,
+    transform 0.9s var(--ease-expo);
+}
+
+.reveal-line.in-view {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ── Reveal blur ── */
+.reveal-blur {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(16px);
+  transition: opacity 1s ease, filter 1s ease,
+    transform 1s var(--ease-expo);
+}
+
+.reveal-blur.in-view {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ── Section separator draw line ── */
+.section-draw-line {
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent);
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 1.2s var(--ease-expo);
+}
+
+.section-draw-line.in-view {
+  transform: scaleX(1);
+}
+
+/* ── Parallax ── */
+.parallax-slow {
+  will-change: transform;
+}
+
+
+/* ═══════════  STAGGER SYSTEMS  ═══════════ */
+
+/* ── Stagger children inside a container ── */
+.stagger-children>* {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s var(--ease-expo),
+    transform 0.7s var(--ease-expo);
+}
+
+.stagger-children.in-view>*:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.stagger-children.in-view>*:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
+.stagger-children.in-view>*:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
+.stagger-children.in-view>*:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
+.stagger-children.in-view>*:nth-child(5) { opacity: 1; transform: none; transition-delay: 400ms; }
+.stagger-children.in-view>*:nth-child(6) { opacity: 1; transform: none; transition-delay: 500ms; }
+
+/* ── Gallery items stagger ── */
+.gallery-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s var(--ease-expo),
+    transform 0.7s var(--ease-expo),
+    filter 0.7s var(--ease-expo), border-color 0.4s ease;
+}
+
+.gallery-grid.in-view .gallery-item { opacity: 1; transform: translateY(0); }
+.gallery-grid.in-view .gallery-item:nth-child(1) { transition-delay: 0ms; }
+.gallery-grid.in-view .gallery-item:nth-child(2) { transition-delay: 60ms; }
+.gallery-grid.in-view .gallery-item:nth-child(3) { transition-delay: 120ms; }
+.gallery-grid.in-view .gallery-item:nth-child(4) { transition-delay: 180ms; }
+.gallery-grid.in-view .gallery-item:nth-child(5) { transition-delay: 240ms; }
+.gallery-grid.in-view .gallery-item:nth-child(6) { transition-delay: 300ms; }
+.gallery-grid.in-view .gallery-item:nth-child(7) { transition-delay: 360ms; }
+.gallery-grid.in-view .gallery-item:nth-child(8) { transition-delay: 420ms; }
+
+/* ── Timeline cards: alternate slide directions ── */
+.timeline-left .timeline-card {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.8s var(--ease-expo),
+    transform 0.8s var(--ease-expo);
+}
+
+.timeline-right .timeline-card {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.8s var(--ease-expo),
+    transform 0.8s var(--ease-expo);
+}
+
+.timeline-item.in-view .timeline-left .timeline-card,
+.timeline-item.in-view .timeline-right .timeline-card {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-item.in-view .timeline-card {
+  transition-delay: 0.15s;
+}
+
+/* ── Solaris card slide-in ── */
+.solaris-card-wrap .solaris-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1s var(--ease-expo),
+    transform 1s var(--ease-expo), border-color 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.solaris-card-wrap.in-view .solaris-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.solaris-card-wrap.in-view .solaris-stripe {
+  animation: stripe-draw 0.8s var(--ease-expo) 0.4s both;
+}
+
+/* ── Bento project cards cascade ── */
+.bento-grid .project-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: opacity 0.8s var(--ease-expo),
+    transform 0.8s var(--ease-expo);
+}
+
+.bento-grid.in-view .project-card:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.bento-grid.in-view .project-card:nth-child(2) { opacity: 1; transform: none; transition-delay: 120ms; }
+.bento-grid.in-view .project-card:nth-child(3) { opacity: 1; transform: none; transition-delay: 240ms; }
+
+/* ── Stats stagger ── */
+.stat-block {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease,
+    transform 0.7s var(--ease-expo), background 0.4s ease;
+}
+
+.stats-grid.in-view .stat-block:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.stats-grid.in-view .stat-block:nth-child(2) { opacity: 1; transform: none; transition-delay: 80ms; }
+.stats-grid.in-view .stat-block:nth-child(3) { opacity: 1; transform: none; transition-delay: 160ms; }
+.stats-grid.in-view .stat-block:nth-child(4) { opacity: 1; transform: none; transition-delay: 240ms; }
+
+/* ── Footer items stagger ── */
+.footer-glass .grid>* {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease,
+    transform 0.7s var(--ease-expo);
+}
+
+.footer-glass.in-view .grid>*:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.footer-glass.in-view .grid>*:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
+.footer-glass.in-view .grid>*:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
+.footer-glass.in-view .grid>*:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
+
+
+/* ═══════════  DELAY UTILITIES  ═══════════ */
+
+.delay-100 { animation-delay: 100ms; transition-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; transition-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; transition-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; transition-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; transition-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; transition-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; transition-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; transition-delay: 800ms; }
+.delay-900 { animation-delay: 900ms; transition-delay: 900ms; }
+.delay-1000 { animation-delay: 1000ms; transition-delay: 1000ms; }
+
+/* ── Nexus Interface Animations ── */
+@keyframes scan-nexus {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 15px var(--accent);
+  z-index: 10;
+  pointer-events: none;
+  animation: scan-nexus 4s linear infinite;
+}
+
+@keyframes log-fade-in {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.log-entry {
+  animation: log-fade-in 0.3s ease-out forwards;
+}
+
+.hud-tag.animate-ping {
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
