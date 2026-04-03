@@ -20,6 +20,7 @@ RCRIC is a student-run club focused on robotics, artificial intelligence, and IC
 - Google Fonts 
 
 ## File Structure
+```
 
 rcric/
 ├── index.html           # Main page
@@ -38,6 +39,7 @@ rcric/
 ├── pages/
 │   └── executives.html  # Executives page
 └── favicon_io/          # Favicon assets
+```
 
 ## Running Locally
 
