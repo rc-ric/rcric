@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Executives | RCRIC</title>
+  <meta name="description"
+    content="Meet the executive board and leadership team of Rajuk College Robotics & ICT Club." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Variable Fonts (Display & Body) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inconsolata:wght@200..900&display=swap"
+    rel="stylesheet">
+
+  <!-- Static/Standard Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&family=Oxanium:wght@200;300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inconsolata", "IBM Plex Mono", "Space Mono", "monospace"],
+            display: ["Orbitron", "sans-serif"],
+            tech: ["Orbitron", "monospace"],
+          },
+          colors: {
+            accent: "#9333ea",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Custom Styles (organized into modules) -->
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/typography.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/navigation.css" />
+  <link rel="stylesheet" href="../css/hero.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/sections.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png" />
+  <link rel="icon" href="../favicon_io/favicon.ico" />
+  <link rel="manifest" href="../favicon_io/site.webmanifest" />
+
+  <style>
+    /* ── Executives Page Specific Styles ── */
+    .exec-card {
+      position: relative;
+      background: rgba(147, 51, 234, 0.08);
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      padding: 3rem;
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .exec-role {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .exec-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+
+    .exec-dept {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .exec-index {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.15);
+      letter-spacing: 0.2em;
+      font-weight: 600;
+    }
+
+    .officer-card {
+      background: rgba(147, 51, 234, 0.08);
+      border: 1px solid rgba(var(--accent-rgb), 0.15);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .officer-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(var(--accent-rgb), 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Back link style */
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-link:hover {
+      color: var(--accent);
+    }
+
+    .back-link::before {
+      content: "←";
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white font-sans font-bold antialiased overflow-x-hidden">
+
+  <div class="grid-bg"></div>
+  <div class="grid-lights" aria-hidden="true">
+    <div class="grid-orb orb-1"></div>
+    <div class="grid-orb orb-2"></div>
+    <div class="grid-orb orb-3"></div>
+    <div class="grid-orb orb-4"></div>
+  </div>
+
+  <header class="fixed top-6 left-0 right-0 mx-auto w-[95%] max-w-[1200px] z-50 transition-all duration-500" id="header">
+    <nav class="nav-floating w-full flex items-center justify-between px-7 py-4 border border-white/10" id="main-nav">
+      <div class="flex items-center gap-6 relative z-10">
+        <a href="../index.html" class="nav-logo">
+          <span>RCRIC</span>
+        </a>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-2 lg:gap-4 nav-items">
+        <a href="../index.html#home" class="nav-item">HOME</a>
+        <a href="../index.html#features" class="nav-item">ACTIVITIES</a>
+        <a href="../index.html#projects" class="nav-item">PROJECTS</a>
+        <a href="../index.html#about" class="nav-item">ABOUT</a>
+        <a href="../index.html#gallery" class="nav-item">GALLERY</a>
+        <a href="executives.html" class="nav-item is-active">EXECUTIVES</a>
+        <a href="https://forms.gle/xnCT58B4PuQkRUdp9" target="_blank"
+          class="nav-btn-join">JOIN</a>
+      </div>
+
+      <button id="menu-btn"
+        class="lg:hidden p-2 text-white hover:text-accent transition-colors focus:outline-none"
+        aria-label="Toggle navigation menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="mobile-menu-close" aria-label="Close translation menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <a href="../index.html#home">HOME</a>
+    <a href="../index.html#features">ACTIVITIES</a>
+    <a href="../index.html#projects">PROJECTS</a>
+    <a href="../index.html#about">ABOUT</a>
+    <a href="../index.html#gallery">GALLERY</a>
+    <a href="executives.html" class="is-active">EXECUTIVES</a>
+    <a href="https://forms.gle/xnCT58B4PuQkRUdp9" target="_blank" class="nav-btn-join !ml-0 !mt-12 !px-16 !py-6 !text-[22px] !tracking-normal !font-black !w-auto">JOIN</a>
+  </div>
+
+  <!-- Executives Section -->
+  <section class="min-h-screen pt-32 pb-20 px-6 relative">
+    <div class="max-w-5xl mx-auto relative z-10">
+
+      <!-- Section Header -->
+      <div class="flex flex-col items-center mb-24">
+
+
+        <h1
+          class="font-display text-4xl md:text-7xl font-extrabold text-center tracking-tighter text-white mb-6 fade-in-up delay-100">
+          Our Executives
+        </h1>
+
+        <!-- Session Filter -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 fade-in-up delay-300 w-full mx-auto">
+          <button id="session-btn-25"
+            class="session-btn rounded-full font-tech active !text-white !px-14 !py-3 !text-[10px] !ml-0 cursor-pointer uppercase transition-all duration-300 nav-btn-join">
+            2025-2026
+          </button>
+          <button id="session-btn-26"
+            class="session-btn bg-white/5 text-white/40 border border-white/10 font-tech text-[10px] tracking-[0.3em] rounded-full !px-14 !py-3 transition-all duration-300 cursor-pointer relative uppercase">
+            2026-2027
+            <span
+              class="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black/90 text-[7px] text-accent font-bold border border-accent/30 opacity-0 whitespace-nowrap rounded font-tech tracking-widest">UPCOMING_PANEL</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Central Board -->
+      <div class="mb-32">
+        <div
+          class="font-tech text-[10px] tracking-wider text-accent font-bold mb-12 uppercase text-center fade-in-up delay-400">
+          <span class="inline-block px-3 py-1.5 rounded bg-accent/10 backdrop-blur-md border border-accent/30 shadow-[0_4px_20px_rgba(147,51,234,0.15)]">// The Central Board</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          <!-- 02 GS -->
+          <div class="exec-card group">
+            <div class="tech-corner tl !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="tech-corner br !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="exec-index">02</div>
+            <div class="exec-role">General Secretary</div>
+            <div class="exec-name" data-name="Aronnyo Shrishty Ghosh">Aronnyo Shrishty Ghosh</div>
+          </div>
+
+          <!-- 01 President (Middle - Emphasized) -->
+          <div
+            class="exec-card group !bg-accent/[0.15] !border-accent/50 shadow-[0_0_40px_rgba(147,51,234,0.25),inset_0_0_30px_rgba(147,51,234,0.12)] scale-105 z-20 relative">
+            <div class="tech-corner tl !w-5 !h-5 !border-accent"></div>
+            <div class="tech-corner br !w-5 !h-5 !border-accent"></div>
+            <div class="exec-index !text-accent/50 !top-2 !right-3">01</div>
+            <div class="exec-role !text-accent font-black tracking-[0.4em] text-[11px] mb-3">President</div>
+            <div class="exec-name !text-white text-2xl font-bold tracking-tight" data-name="Fardin Ahmed">Fardin Ahmed
+            </div>
+          </div>
+
+          <!-- 03 VP -->
+          <div class="exec-card group">
+            <div class="tech-corner tl !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="tech-corner br !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="exec-index">03</div>
+            <div class="exec-role">Vice President</div>
+            <div class="exec-name" data-name="Fahmida Khanam">Fahmida Khanam</div>
+          </div>
+
+          <!-- 04 VP -->
+          <div class="exec-card group">
+            <div class="tech-corner tl !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="tech-corner br !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="exec-index">04</div>
+            <div class="exec-role">Vice President</div>
+            <div class="exec-name" data-name="Nibeer Nuzhat Wazed">Nibeer Nuzhat Wazed</div>
+          </div>
+          <!-- 05 OS -->
+          <div class="exec-card group">
+            <div class="tech-corner tl !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="tech-corner br !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="exec-index">05</div>
+            <div class="exec-role">Organizing Secretary</div>
+            <div class="exec-name" data-name="Mahmud Rufaye Zaber">Mahmud Rufaye Zaber</div>
+          </div>
+          <!-- 06 Treasurer -->
+          <div class="exec-card group">
+            <div class="tech-corner tl !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="tech-corner br !w-3 !h-3" style="border-width: 1px;"></div>
+            <div class="exec-index">06</div>
+            <div class="exec-role">Treasurer</div>
+            <div class="exec-name" data-name="Omar Arafat">Omar Arafat</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Joint Secretaries (Department Leads) -->
+      <div class="mb-16">
+        <div class="font-tech text-[10px] tracking-wider text-accent font-bold mb-6 uppercase text-center fade-in-up delay-500">
+          <span class="inline-block px-3 py-1.5 rounded bg-accent/10 backdrop-blur-md border border-accent/30 shadow-[0_4px_20px_rgba(147,51,234,0.15)]">// Joint Secretaries — Department Leads</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children">
+          <div class="exec-card group">
+            <div class="tech-corner tl" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="tech-corner br" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="exec-index">07</div>
+            <div class="exec-role">Event Management</div>
+            <div class="exec-name" data-name="Quazi Nafiz Sadiq">Quazi Nafiz Sadiq</div>
+          </div>
+          <div class="exec-card group">
+            <div class="tech-corner tl" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="tech-corner br" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="exec-index">08</div>
+            <div class="exec-role">Logistics</div>
+            <div class="exec-name" data-name="Abdullah Al Ujayer">Abdullah Al Ujayer</div>
+          </div>
+          <div class="exec-card group">
+            <div class="tech-corner tl" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="tech-corner br" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="exec-index">09</div>
+            <div class="exec-role">Instructor</div>
+            <div class="exec-name" data-name="Sharhad Sultana Rizin">Sharhad Sultana Rizin</div>
+          </div>
+          <div class="exec-card group">
+            <div class="tech-corner tl" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="tech-corner br" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="exec-index">10</div>
+            <div class="exec-role">Olympiad</div>
+            <div class="exec-name" data-name="Nusrat Jahan Trisha">Nusrat Jahan Trisha</div>
+          </div>
+          <div class="exec-card group">
+            <div class="tech-corner tl" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="tech-corner br" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="exec-index">11</div>
+            <div class="exec-role">Public Relations</div>
+            <div class="exec-name" data-name="Arpita Chanda">Arpita Chanda</div>
+          </div>
+          <div class="exec-card group">
+            <div class="tech-corner tl" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="tech-corner br" style="width: 12px; height: 12px; border-width: 1px;"></div>
+            <div class="exec-index">12</div>
+            <div class="exec-role">Documentation & Graphics</div>
+            <div class="exec-name" data-name="Zaima Zubayer Prova">Zaima Zubayer Prova</div>
+          </div>
+        </div>
+      </div>
+
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-32 px-6 bg-black/30 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto footer-glass p-12 md:p-16 relative overflow-hidden">
+      <!-- Tech Corners for Footer -->
+      <div class="tech-corner tl !w-8 !h-8 opacity-30"></div>
+      <div class="tech-corner tr !w-8 !h-8 opacity-30"></div>
+      <div class="tech-corner bl !w-8 !h-8 opacity-30"></div>
+      <div class="tech-corner br !w-8 !h-8 opacity-30"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+        <div class="col-span-1 md:col-span-1">
+          <h4 class="font-display font-bold text-2xl mb-4">RCRIC</h4>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Building robots and teaching engineering since 2023.
+          </p>
+        </div>
+
+        <div>
+          <h5 class="font-bold mb-6 text-sm tracking-wider uppercase text-white/80">Navigation</h5>
+          <ul class="space-y-3 text-sm text-white/50">
+            <li><a href="../index.html#home" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="../index.html#features" class="hover:text-white transition-colors">Activities</a></li>
+            <li><a href="../index.html#projects" class="hover:text-white transition-colors">Projects</a></li>
+            <li><a href="../index.html#about" class="hover:text-white transition-colors">About RCRIC</a></li>
+            <li><a href="executives.html" class="hover:text-white transition-colors">Executives</a></li>
+            <li><a href="https://forms.gle/xnCT58B4PuQkRUdp9" target="_blank"
+                class="hover:text-white transition-colors">Join Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold mb-6 text-sm tracking-wider uppercase text-white/80">Social Uplink</h5>
+          <ul class="space-y-3 text-sm text-white/50">
+            <li>
+              <a href="https://www.facebook.com/rajuk.ric" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center gap-2">Facebook <span
+                  class="text-xs opacity-50">↗</span></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/rajuk.ric/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center gap-2">Instagram <span
+                  class="text-xs opacity-50">↗</span></a>
+            </li>
+            <li>
+              <a href="https://github.com/rc-ric/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-white transition-colors flex items-center gap-2">GitHub <span
+                  class="text-xs opacity-50">↗</span></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/rajuk-college-robotics-ict-club-rcric" target="_blank"
+                rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-2">LinkedIn
+                <span class="text-xs opacity-50">↗</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="font-bold mb-6 text-sm tracking-wider uppercase text-white/80">Contact</h5>
+          <a href="mailto:rajuk.ric@gmail.com"
+            class="text-sm text-white/50 hover:text-white transition-colors">[rajuk.ric@gmail.com]</a>
+        </div>
+      </div>
+
+      <div class="mt-20 flex flex-col md:flex-row justify-center items-center gap-4 text-xs text-white/30 relative z-10">
+        <p>
+          <a href="https://github.com/rc-ric/rc-ric.github.io/blob/main/LICENSE" target="_blank"
+            rel="noopener noreferrer" class="hover:text-white transition-colors">&copy; 2026</a> RCRIC Engineering
+          Division.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/executives.js"></script>
+</body>
+
+</html>
